@@ -1,0 +1,67 @@
+.header {
+    font-size:2rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:center;
+    margin-top:2rem;
+    padding-bottom:1rem;
+    border-bottom:2px solid #f3f3f3;
+}
+
+.Todos-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Todos{
+    display: block;
+    margin-top:3rem;
+    font-size:1.3rem;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Todo-items {
+    list-style-type: none;
+
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.input-box {
+    font-size:1.2rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin-top:2rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    border:none;
+    border-bottom:3px solid #eee;
+    transition:200ms;
+}
+
+.input-box:focus {
+    outline:none !important;
+    box-shadow:none !important;
+    border-bottom:2px solid #1E88E5
+}
+
+.input-submit {
+    cursor:pointer;
+    margin-top:2rem;
+    margin-left:1rem;
+    background-color:#1E88E5;
+    color:white;
+    font-size:1.2rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    border:none;
+    border-radius:5px;
+}

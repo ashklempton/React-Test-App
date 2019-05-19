@@ -41,14 +41,26 @@ export class App extends Component {
 
   }
 
+  addTodoToState = (title) => {
+    let todo = {
+      id:uuid(),
+      title:title,
+      isCompleted:false
+    }
+
+    this.setState(prevstate => ({
+      todos:[...prevstate.todos,todo]
+    }))
+  }
+
   render() {
     return (
       <React-Fragment>
         <Header />
-        <TodosBox todos={this.state.todos} makeChanges={this.setChanges} />
+        <TodosBox todos={this.state.todos} makeChanges={this.setChanges} deleteTodos={this.deleteTodos} />
 
         {/* input */}
-        <InputBox>
+        <InputBox addTodo={this.addTodoToState}>
         </InputBox>
 
       </React-Fragment>

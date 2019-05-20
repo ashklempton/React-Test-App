@@ -65,3 +65,15 @@
     border:none;
     border-radius:5px;
 }
+
+.links {
+    margin-top:1rem;
+    font-size:1rem;
+    font-weight: normal;
+}
+
+.link {
+    margin-right:1rem;
+    text-decoration:none;
+    color:#1E88E5;
+}

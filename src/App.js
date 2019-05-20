@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import Header from "./components/Header";
 import TodosBox from "./components/TodosBox";
-import InputBox from "./components/InputBox"
+import InputBox from "./components/InputBox";
+import About from "./components/About";
 
 const uuid = require("uuid/v4");
 
@@ -23,47 +25,58 @@ export class App extends Component {
       {
         id: uuid(),
         title: "washing laundry",
-        isCompleted:false
+        isCompleted: false
       }
     ]
   };
 
-  setChanges = (id) => {
-
+  setChanges = id => {
     this.setState(prevstate => ({
-      todos:prevstate.todos.map(obj => {
-        if(obj.id === id){
-          obj.isCompleted = !obj.isCompleted
+      todos: prevstate.todos.map(obj => {
+        if (obj.id === id) {
+          obj.isCompleted = !obj.isCompleted;
         }
-        return obj
+        return obj;
       })
-    }))
+    }));
+  };
 
-  }
-
-  addTodoToState = (title) => {
+  addTodoToState = title => {
     let todo = {
-      id:uuid(),
-      title:title,
-      isCompleted:false
-    }
+      id: uuid(),
+      title: title,
+      isCompleted: false
+    };
 
     this.setState(prevstate => ({
-      todos:[...prevstate.todos,todo]
-    }))
-  }
+      todos: [...prevstate.todos, todo]
+    }));
+  };
 
   render() {
     return (
-      <React-Fragment>
-        <Header />
-        <TodosBox todos={this.state.todos} makeChanges={this.setChanges} deleteTodos={this.deleteTodos} />
+      <Router>
+        <React-Fragment>
+          <Header />
 
-        {/* input */}
-        <InputBox addTodo={this.addTodoToState}>
-        </InputBox>
+          
+          <Route exact path="/" render={props => (
+          <React-Fragment>
+              <TodosBox
+            todos={this.state.todos}
+            makeChanges={this.setChanges}
+            deleteTodos={this.deleteTodos}
+          />
 
-      </React-Fragment>
+          {/* input */}
+          <InputBox addTodo={this.addTodoToState} />
+          </React-Fragment>
+          )} />
+
+          <Route path="/about" component={About}/>
+
+        </React-Fragment>
+      </Router>
     );
   }
 }
